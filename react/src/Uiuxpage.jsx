@@ -1,4 +1,4 @@
-import { uiuxProjects } from "./UIUXprojects";
+import { uiuxProjects } from "./Uiuxprojects";
 import { ProjectCard } from "./WebDesignPage";
 import { Header, Contact, rise } from "./shared";
 
