@@ -4,9 +4,9 @@ const profile = {
   name: "Esther Gracia Claudya",
   status: "Available to work",
   heroPhotos: {
-    portrait: { src: "../img/asset/photo.jpg", alt: "Portrait of Esther", label: "you", tone: "butter" },
-    desk: { src: "../img/asset/desk.png", alt: "My desk and design setup", label: "desk setup", tone: "sky" },
-    work: { src: "../img/asset/work.png", alt: "Me presenting a project", label: "at work", tone: "mint" },
+    portrait: { src: "../public/asset/photo.jpg", alt: "Portrait of Esther", label: "you", tone: "butter" },
+    desk: { src: "../public/asset/desk.png", alt: "My desk and design setup", label: "desk setup", tone: "sky" },
+    work: { src: "../public/asset/work.png", alt: "Me presenting a project", label: "at work", tone: "mint" },
   },
   email: "esterstdio@gmail.com",
   socials: [
@@ -33,28 +33,28 @@ const aboutParagraphs = [
 ];
 
 const stack = [
-  { n: "Figma", a: "Fg", logo: "../img/logo/figma.png" },
-  { n: "Framer", a: "Fr", logo: "../img/logo/framer.png" },
+  { n: "Figma", a: "Fg", logo: "../public/logo/figma.png" },
+  { n: "Framer", a: "Fr", logo: "../public/logo/framer.png" },
   // { n: "Motion graphics", a: "Mo", logo: "" },
-  { n: "Capcut", a: "Cc", logo: "../img/logo/capcut.png" },
-  { n: "Canva", a: "Cn", logo: "../img/logo/canva.png" },
-  { n: "Blender", a: "3D", logo: "../img/logo/blender.png" },
-  { n: "HTML", a: "Ht", logo: "../img/logo/html.png" },
-  { n: "CSS", a: "Cs", logo: "../img/logo/css.png" },
-  { n: "Phyton", a: "Py", logo: "../img/logo/phyton.png" },
-  { n: "React.js", a: "Re", logo: "../img/logo/react.png" },
-  { n: "Tailwind CSS", a: "Tw", logo: "../img/logo/tailwind.png" },
-  { n: "Firebase", a: "Fb", logo: "../img/logo/firebase.png" },
-  { n: "Supabase", a: "Sb", logo: "../img/logo/supabase.png" },
-  { n: "Notion", a: "Na", logo: "../img/logo/notion.png" },
-  { n: "Trello", a: "Tre", logo: "../img/logo/trello.png" },
-  { n: "Coda", a: "Co", logo: "../img/logo/coda.png" },
+  { n: "Capcut", a: "Cc", logo: "../public/logo/capcut.png" },
+  { n: "Canva", a: "Cn", logo: "../public/logo/canva.png" },
+  { n: "Blender", a: "3D", logo: "../public/logo/blender.png" },
+  { n: "HTML", a: "Ht", logo: "../public/logo/html.png" },
+  { n: "CSS", a: "Cs", logo: "../public/logo/css.png" },
+  { n: "Phyton", a: "Py", logo: "../public/logo/phyton.png" },
+  { n: "React.js", a: "Re", logo: "../public/logo/react.png" },
+  { n: "Tailwind CSS", a: "Tw", logo: "../public/logo/tailwind.png" },
+  { n: "Firebase", a: "Fb", logo: "../public/logo/firebase.png" },
+  { n: "Supabase", a: "Sb", logo: "../public/logo/supabase.png" },
+  { n: "Notion", a: "Na", logo: "../public/logo/notion.png" },
+  { n: "Trello", a: "Tre", logo: "../public/logo/trello.png" },
+  { n: "Coda", a: "Co", logo: "../public/logo/coda.png" },
 ];
 
 const experience = [
-  { mark: "IC", logo: "../img/asset/imilkom.png", tone: "sky", title: "IT CAMP — IMILKOM USU", role: "UI/UX Design Mentor", when: "Mar – May 2026" },
-  { mark: "SE", logo: "../img/asset/satu.png", tone: "butter", title: "SatuEdu Foundation", role: "UI/UX Design Staff", when: "Feb 2025 – Jan 2026" },
-  { mark: "KTM", logo: "../img/asset/bpn.png", tone: "mint", title: "Kantor Pertanahan Kota Medan", role: "IT Staff Intern", when: "Mar – May 2025" },
+  { mark: "IC", logo: "../public/asset/imilkom.png", tone: "sky", title: "IT CAMP — IMILKOM USU", role: "UI/UX Design Mentor", when: "Mar – May 2026" },
+  { mark: "SE", logo: "../public/asset/satu.png", tone: "butter", title: "SatuEdu Foundation", role: "UI/UX Design Staff", when: "Feb 2025 – Jan 2026" },
+  { mark: "KTM", logo: "../public/asset/bpn.png", tone: "mint", title: "Kantor Pertanahan Kota Medan", role: "IT Staff Intern", when: "Mar – May 2025" },
 ];
 
 const caseStudies = [
