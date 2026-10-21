@@ -1,7 +1,7 @@
 /* Each card opens the case study PDF on Google Drive (href).
    img: cover image in /public. Add more case studies by copying one object. */
 const CASE_STUDY_PDF =
-  "https://drive.google.com/file/d/18Zy354M5Kj2D4QDhR_XvlEUXoQch96Yw/view?usp=sharing";
+  "https://www.figma.com/design/Q9GRExI4WVCqmYI6VE24qK/final?node-id=2002-1464&t=4WFPYJcCozo5YJiB-1";
 
 export const uiuxProjects = [
   {
