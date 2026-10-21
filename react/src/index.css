@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* tokens:start */
+:root {
+  /* dark first */
+  --bg: #1c1d21;
+  --surface: #26282d;
+  --chip: #2e3037;
+  --ink: #f1f0ec;
+  --muted: #a3a5ad;
+  --line: #3a3c43;
+  --accent: #9db8ff;
+  --glass: rgba(38, 40, 45, 0.72);
+  --on-pastel: #1b1d22;
+  --c-sky: #a8d8ee;
+  --c-mint: #b4e6bf;
+  --c-butter: #f1dd9c;
+  --c-blush: #f3b8c4;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --chip: #e9ebf0;
+    --ink: #17181c;
+    --muted: #5f636d;
+    --line: #dcdee4;
+    --accent: #2d4fd6;
+    --glass: rgba(255, 255, 255, 0.72);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --chip: #e9ebf0;
+  --ink: #17181c;
+  --muted: #5f636d;
+  --line: #dcdee4;
+  --accent: #2d4fd6;
+  --glass: rgba(255, 255, 255, 0.72);
+  color-scheme: light;
+}
+/* tokens:end */
+
+/* Spacing: gap between sections, and between a subtitle and its content. */
+:root {
+  --section-gap: 32px;
+  --title-gap: 16px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-chip: var(--chip);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-glass: var(--glass);
+  --color-onpastel: var(--on-pastel);
+  --color-pastel-sky: var(--c-sky);
+  --color-pastel-mint: var(--c-mint);
+  --color-pastel-butter: var(--c-butter);
+  --color-pastel-blush: var(--c-blush);
+  --font-sans: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  transition: background-color .35s ease, color .35s ease;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.gutter {
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+h1, h2 { text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--c-butter); color: var(--on-pastel); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+/* ---------- motion ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+.rise { animation: rise .9s cubic-bezier(.22, 1, .36, 1) both; animation-delay: var(--d, 0ms); }
+
+/* Below-the-fold blocks fade in when scrolled to. Blocks already in view are never hidden. */
+.reveal[data-armed="true"] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s cubic-bezier(.22, 1, .36, 1) var(--d, 0ms),
+              transform .8s cubic-bezier(.22, 1, .36, 1) var(--d, 0ms);
+}
+.reveal[data-armed="true"][data-in="true"] { opacity: 1; transform: none; }
+
+@keyframes icon-in {
+  from { opacity: 0; transform: rotate(-70deg) scale(.6); }
+  to   { opacity: 1; transform: none; }
+}
+.icon-in { animation: icon-in .4s cubic-bezier(.22, 1, .36, 1) both; }
+
+.progress {
+  position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px);
+  height: 2px; z-index: 50; pointer-events: none;
+}
+.progress-bar { height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+
+/* ---------- surfaces ---------- */
+.hero-glow {
+  background:
+    radial-gradient(55% 60% at 12% 0%, color-mix(in srgb, var(--c-sky) 20%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 92% 8%, color-mix(in srgb, var(--c-blush) 15%, transparent), transparent 70%);
+}
+.highlight { background: color-mix(in srgb, var(--c-mint) 55%, transparent); padding: .15em .6em; border-radius: 6px; }
+.dash-underline { text-decoration: underline dashed; text-decoration-color: var(--muted); text-underline-offset: 8px; text-decoration-thickness: 2px; color: var(--ink); }
+
+.soft-card {
+  background: color-mix(in srgb, var(--ink) 4.5%, var(--bg));
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1), box-shadow .35s ease;
+}
+.soft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+.folder-back { background: color-mix(in srgb, var(--ink) 7%, var(--bg)); }
+.folder-front {
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px);
+  transition: backdrop-filter .5s ease, -webkit-backdrop-filter .5s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+  box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+.group:hover .folder-front { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transform: translateY(-2px); }
+.sheet { background: var(--surface); box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--ink) 45%, transparent); transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
+.tile { transition: transform .35s cubic-bezier(.34, 1.56, .64, 1); }
+li:hover > .tile, .tile-wrap:hover .tile { transform: translateY(-6px) rotate(-4deg); }
+
+/* Page-load rise for the hero. Ends fully visible, so the resting page is complete. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Photos pop in after the headline. "backwards" keeps their own tilt and hover afterwards. */
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+}
+.pop-in {
+  animation: pop 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.25) backwards;
+  animation-delay: var(--d, 0ms);
+}
+
+/* The waving hand moves twice, then rests. */
+@keyframes wave {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(16deg); }
+  40% { transform: rotate(-8deg); }
+  60% { transform: rotate(14deg); }
+  80% { transform: rotate(-4deg); }
+}
+.wave {
+  display: inline-block;
+  transform-origin: 70% 75%;
+  animation: wave 1.6s ease-in-out 1.2s 2;
+}
+
+/* Scroll reveal. The .reveal class is only added after the first scroll,
+   and only to elements still below the fold, so the first screen is never hidden. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise, .pop-in, .wave, .animate-ping, .animate-pulse { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
