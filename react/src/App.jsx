@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { profile, toneClass, tones, rv, rise, ExtLink, Header, MockShot, Contact } from "./shared";
 import WebDesignPage from "./WebDesignPage";
 import ProjectDetail from "./ProjectDetail";
+import UIUXPage from "./UIUXPage";
 
 
 /* A string is plain text, { b } is bold, { t, href } is a link. */
@@ -48,7 +49,7 @@ const caseStudies = [
   { name: "UI/UX Design", desc: "Designing meaningful digital experiences through user research, thoughtful interfaces, and usability testing.", tone: "sky", href: "#uiux", shots: [] },
   // { name: "Graphic Design", desc: "Exploring visual identities, branding, and creative visuals that bring ideas to life.", tone: "butter", href: "#graphic-design", shots: [] },
   { name: "Web Design & Frontend", desc: "Bridging design and technology to build responsive, functional, and engaging websites.", tone: "mint", href: "#web-development", shots: [] },
-  { name: "Motion Graphics", desc: "Experimenting with movement, animation, and visual storytelling to make designs more expressive.", tone: "blush", href: "#motion-graphics", shots: [] },
+  // { name: "Motion Graphics", desc: "Experimenting with movement, animation, and visual storytelling to make designs more expressive.", tone: "blush", href: "#motion-graphics", shots: [] },
 ];
 
 
@@ -304,7 +305,7 @@ function Experience() {
         id="exp-title"
         aside={
           <ExtLink
-            href="https://drive.google.com/file/d/1tUNsYytyv6ko1B_G1IWTT9lm1uKjMCoq/view?usp=sharing"
+            href="https://drive.google.com/file/d/1UHwAQR0DzsipULX2zvQ5jqe-oRKqRYWa/view?usp=sharing"
             className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2 text-sm font-medium uppercase tracking-[0.08em] transition-colors hover:border-ink hover:bg-surface"
           >
             Resume
@@ -514,6 +515,7 @@ function Work() {
 function getRoute() {
   const h = window.location.hash.slice(1);
   if (h === "web-development") return { page: "web" };
+  if (h === "uiux") return { page: "uiux" };
   if (h.startsWith("project-")) return { page: "project", slug: h.slice(8) };
   return { page: "home" };
 }
@@ -534,6 +536,8 @@ export default function App() {
     <div style={{ "--section-gap": "1.5rem" }}>
       {route.page === "web" ? (
         <WebDesignPage theme={theme} onToggle={toggle} />
+      ) : route.page === "uiux" ? (
+        <UIUXPage theme={theme} onToggle={toggle} />
       ) : route.page === "project" ? (
         <ProjectDetail slug={route.slug} theme={theme} onToggle={toggle} />
       ) : (

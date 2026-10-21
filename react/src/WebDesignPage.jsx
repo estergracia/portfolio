@@ -13,7 +13,7 @@ import {
 export function ProjectCard({ p, i }) {
   return (
     <li {...rv(i % 2)}>
-      <ExtLink href={"#project-" + p.slug} className="group block">
+      <ExtLink href={p.href || "#project-" + p.slug} className="group block">
         <span
           className={
             "block aspect-[4/3] overflow-hidden rounded-2xl border border-line p-5 transition-transform duration-500 group-hover:-translate-y-1 sm:p-6 " +
