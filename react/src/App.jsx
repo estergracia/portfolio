@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { profile, toneClass, tones, rv, rise, ExtLink, Header, MockShot, Contact } from "./shared";
 import WebDesignPage from "./WebDesignPage";
 import ProjectDetail from "./ProjectDetail";
-import UIUXPage from "./UIUXPage";
+import UIUXPage from "./Uiuxpage";
 
 
 /* A string is plain text, { b } is bold, { t, href } is a link. */
